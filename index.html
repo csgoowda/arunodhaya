@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arunodaya Cafe | The Experience</title>
+    <meta name="description"
+        content="Arunodaya Cafe — where every sip is a story. Explore our menu, share feedback, and win rewards.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="is-loading">
+
+    <!-- Premium Glass Header -->
+    <header class="premium-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Arunodaya.</a>
+            <nav class="nav-links">
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#rewards" class="nav-link">Play</a>
+                <a href="#contact" class="nav-link">Visit</a>
+            </nav>
+            <div class="nav-actions">
+            </div>
+        </div>
+    </header>
+
+    <!-- Premium Animated Mesh Background -->
+    <div class="page-bg-mesh" aria-hidden="true">
+        <canvas id="fluidCanvas"></canvas>
+        <div class="bg-orb o1"></div>
+        <div class="bg-orb o2"></div>
+        <div class="bg-orb o3"></div>
+        <div class="bg-orb o4"></div>
+        <div id="mouseGlow" class="mouse-glow"></div>
+        <div class="bg-noise"></div>
+    </div>
+
+    <!-- Floating Review Button -->
+    <a href="#feedback" class="review-float-btn" id="reviewBtn" aria-label="Go to feedback">✍️ Review Us</a>
+
+
+
+    <!-- ════════════════════════════════════════════
+     3 — SMART MENU
+═════════════════════════════════════════════ -->
+    <section id="menu" class="menu-section sr">
+
+        <div class="bento-header">
+            <div class="bento-title-box">
+                <span class="sec-label">Our Collection</span>
+                <h2 class="sec-heading">The <em>Art</em> of Taste</h2>
+                <p class="sec-sub">A curated selection of artisanal blends and traditional delicacies, served with a
+                    modern soul.</p>
+            </div>
+
+        </div>
+
+        <!-- Category Filter + Search -->
+        <div class="menu-filters sr d1">
+            <div class="cat-bar" id="catBar" role="tablist">
+                <button class="cat-btn active" data-cat="all">All</button>
+                <button class="cat-btn" data-cat="coffee">Coffee</button>
+                <button class="cat-btn" data-cat="snacks">Snacks</button>
+                <button class="cat-btn" data-cat="drinks">Drinks</button>
+                <button class="cat-btn" data-cat="specials">Specials</button>
+            </div>
+
+            <div class="search-box">
+                <span class="search-ico">🔍</span>
+                <input type="search" id="menuSearch" class="search-in" placeholder="Find your flavor…"
+                    aria-label="Search menu items">
+            </div>
+        </div>
+
+        <!-- Bento Grid Menu -->
+        <div class="bento-grid" id="menuGrid">
+
+            <div class="menu-card" data-cat="specials coffee" data-name="masala dosa" data-mood="energy">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&q=80&w=600"
+                        alt="Masala Dosa" loading="lazy">
+                    <span class="card-badge badge-hot">🔥 Popular</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Masala Dosa</h3>
+                    <p class="card-desc">Crispy rice crepe with spiced potato filling</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹60</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="coffee" data-name="filter coffee" data-mood="energy">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600"
+                        alt="Filter Coffee" loading="lazy">
+                    <span class="card-badge badge-star">⭐ Special</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Filter Coffee</h3>
+                    <p class="card-desc">Traditional South Indian decoction blend</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹25</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="snacks" data-name="idli sambar" data-mood="relaxed">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=600"
+                        alt="Idli Sambar" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Idli Sambar</h3>
+                    <p class="card-desc">Soft steamed rice cakes with lentil soup & chutneys</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹40</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="drinks" data-name="mango lassi" data-mood="creative sweet">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&q=80&w=600"
+                        alt="Mango Lassi" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Mango Lassi</h3>
+                    <p class="card-desc">Fresh mango blended with chilled creamy yogurt</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹55</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="snacks" data-name="medu vada" data-mood="relaxed">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=600"
+                        alt="Medu Vada" loading="lazy">
+                    <span class="card-badge badge-hot">🔥 Popular</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Medu Vada</h3>
+                    <p class="card-desc">Crispy lentil doughnuts with coconut chutney</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹35</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="drinks" data-name="masala chai" data-mood="relaxed">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=600"
+                        alt="Masala Chai" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Masala Chai</h3>
+                    <p class="card-desc">Spiced tea with ginger, cardamom & fresh milk</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="specials" data-name="arunodaya thali" data-mood="creative">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600"
+                        alt="Special Thali" loading="lazy">
+                    <span class="card-badge badge-star">⭐ Signature</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Arunodaya Thali</h3>
+                    <p class="card-desc">Complete South Indian platter — the full experience</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹120</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="coffee" data-name="cold coffee" data-mood="energy sweet">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=600"
+                        alt="Cold Coffee" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Cold Coffee</h3>
+                    <p class="card-desc">Chilled espresso blended with rich cream foam</p>
+                    <div class="card-footer">
+                        <span class="card-price">₹70</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button class="show-more-btn" id="showMoreBtn">Show More Products</button>
+        <div class="no-results" id="noResults">Nothing found. Try another search 🔍</div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+     4 — SMART FEEDBACK
+═════════════════════════════════════════════ -->
+    <section id="feedback" class="feedback-section">
+
+        <p class="sec-label sr">Your Voice Matters</p>
+        <h2 class="sec-heading sr d1">Rate Your <em>Experience</em></h2>
+        <p class="sec-sub sr d2">Your feedback helps us serve you better every day</p>
+
+        <!-- Stars -->
+        <div class="stars-block sr d3" id="starsBlock">
+            <div class="stars-row" id="starsRow" role="group" aria-label="Star rating">
+                <button class="star-btn" data-v="1" aria-label="1 star">★</button>
+                <button class="star-btn" data-v="2" aria-label="2 stars">★</button>
+                <button class="star-btn" data-v="3" aria-label="3 stars">★</button>
+                <button class="star-btn" data-v="4" aria-label="4 stars">★</button>
+                <button class="star-btn" data-v="5" aria-label="5 stars">★</button>
+            </div>
+            <p class="rating-label" id="ratingLabel">Tap a star to rate</p>
+        </div>
+
+        <!-- High Rating (≥4) -->
+        <div class="fb-panel hidden" id="pHigh">
+            <div class="panel-ico">❤️</div>
+            <h3>Thank You So Much!</h3>
+            <p>We're thrilled you loved it. Support us with a Google Review — it means the world to us.</p>
+            <a id="googleBtn" href="https://maps.google.com" target="_blank" rel="noopener" class="fb-cta btn-google">⭐
+                Leave a Google Review</a>
+            <button class="btn-reset" id="rHigh">Rate again</button>
+        </div>
+
+        <!-- Low Rating (≤3) -->
+        <div class="fb-panel hidden" id="pLow">
+            <div class="panel-ico" id="pLowIco">😕</div>
+            <h3 id="pLowTitle">Help Us Improve</h3>
+            <p id="pLowDesc">We're sorry to hear that. Please share what went wrong so we can do better.</p>
+            <form class="fb-form" id="fbForm" novalidate>
+                <input type="text" class="fb-input" id="fbName" placeholder="Your name (optional)" autocomplete="name">
+                <input type="tel" class="fb-input" id="fbPhone" placeholder="Phone (optional)" autocomplete="tel">
+                <textarea class="fb-input fb-textarea" id="fbMsg" placeholder="Tell us what happened…"
+                    rows="4"></textarea>
+                <button type="submit" class="fb-cta btn-submit" id="fbSubmit">Send Feedback</button>
+            </form>
+            <button class="btn-reset" id="rLow">Rate again</button>
+        </div>
+
+        <!-- Success -->
+        <div class="fb-panel hidden" id="pOk">
+            <div class="panel-ico">✅</div>
+            <h3>Feedback Received!</h3>
+            <p>Thank you for helping us grow. We'll make every visit better.</p>
+            <button class="btn-reset" id="rOk">Rate again</button>
+        </div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+     5 — REWARDS SPIN
+═════════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════
+     5 — CAFFEINE CATCH MINI-GAME
+═════════════════════════════════════════════ -->
+    <section id="rewards" class="game-section sr">
+        <div class="sec-label">Interactive Play</div>
+        <h2 class="sec-heading">Catch the <em>Caffeine</em></h2>
+        <p class="sec-sub">Catch 10 beans to unlock a secret cafe reward!</p>
+
+        <div class="game-arena">
+            <div class="game-canvas-wrap">
+                <canvas id="gameCanvas" width="400" height="500"></canvas>
+
+                <div id="gameOverlay" class="game-overlay">
+                    <div class="game-intro">
+                        <span class="game-icon">🫘</span>
+                        <h3>Caffeine Catch</h3>
+                        <p>Move your cup to catch the falling beans.<br><strong>Avoid the blue ice!</strong></p>
+                        <button id="startGameBtn" class="start-game-btn">Start Game</button>
+                    </div>
+                </div>
+
+                <div id="gameResult" class="game-overlay hidden">
+                    <div class="game-result">
+                        <span id="resultIcon" class="game-icon">🏆</span>
+                        <h3 id="resultTitle">Session Over</h3>
+                        <p id="resultMsg">Great effort! Your score has been added.</p>
+                        <button id="restartGameBtn" class="start-game-btn">Play Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Beans Caught</span>
+                    <span id="gameScore" class="stat-value">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Loyalty Points</span>
+                    <span id="loyaltyPts" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="game-controls-hint">
+                <span>🖱️ Move mouse / Drag to catch</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+     6 — SMART FOOTER
+═════════════════════════════════════════════ -->
+    <footer id="contact" class="smart-footer">
+        <div class="footer-inner">
+
+            <div class="footer-brand sr">
+                <span class="footer-logo">Arunodaya.</span>
+                <span class="footer-sub-script">Where every morning begins</span>
+            </div>
+
+            <div class="loc-card sr d1">
+                <div class="loc-icon">📍</div>
+                <p class="loc-name">Arunodaya Cafe</p>
+                <p class="loc-addr">Your Street, Your City, Tamil Nadu</p>
+                <a href="https://maps.google.com/?q=Arunodaya+Cafe" target="_blank" rel="noopener" class="loc-link">
+                    Open in Maps →
+                </a>
+            </div>
+
+            <div class="footer-grid">
+
+                <div class="f-card sr d1">
+                    <div class="f-card-ico">🕒</div>
+                    <p class="f-card-title">Opening Hours</p>
+                    <ul class="hours-ul">
+                        <li><span>Mon – Fri</span><span>7:00 AM – 10:00 PM</span></li>
+                        <li><span>Sat – Sun</span><span>6:30 AM – 11:00 PM</span></li>
+                    </ul>
+                    <span class="open-badge" id="openBadge"></span>
+                </div>
+
+                <div class="f-card sr d2">
+                    <div class="f-card-ico">📞</div>
+                    <p class="f-card-title">Contact Us</p>
+                    <div class="contact-btns">
+                        <a href="tel:+919876543210" class="c-btn c-btn-call"><span>📞</span> Call Now</a>
+                        <a href="https://wa.me/919876543210" target="_blank" rel="noopener"
+                            class="c-btn c-btn-wa"><span>💬</span> WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="f-card sr d3">
+                    <div class="f-card-ico">🌐</div>
+                    <p class="f-card-title">Follow Us</p>
+                    <div class="social-btns">
+                        <a href="#" class="s-btn" target="_blank">📸 Instagram</a>
+                        <a href="#" class="s-btn" target="_blank">👍 Facebook</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom sr">
+                <p>© 2026 Arunodaya Cafe &nbsp;·&nbsp; Crafted with ❤️ &nbsp;·&nbsp; All Rights Reserved</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="fluid.js"></script>
+</body>
+
+</html>
